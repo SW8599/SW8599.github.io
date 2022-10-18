@@ -1,0 +1,77 @@
+ 
+<!DOCTYPE html>
+<html>
+<body>
+
+ 
+ 
+
+<canvas id="myCanvas"
+
+width="600 " height="600 "
+
+style="border:2px solid black;">
+</canvas>
+
+<script>
+
+
+ 
+ 
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    var img = document.getElementById("PicID");
+  
+  var t = 0
+  
+  
+  var xSize = 60; 
+  
+  var ySize = 60;
+   
+ 
+   
+canvas.style.filter='blur(.1vh)contrast(2 )brightness(35)'
+     
+rand1 = Math.floor(Math.random() * 255) + 0;
+
+rand2 = Math.floor(Math.random() * 255) + 0;
+
+rand3 = Math.floor(Math.random() * 255) + 0;
+
+draw2nd = Math.floor(Math.random() * 2) + 1;
+  
+     ctx.fillStyle='rgba('+rand3/5 +','+rand2/5+','+rand1/5  +',1)';
+     ctx.fillRect(0,0,600 ,600 );
+ 
+function loop()
+{
+
+t+=1;
+
+
+   
+
+for(i=0;i<rand1*Math.tan(t)   ;i++){
+
+  ctx.fillStyle='rgba('+rand1 +','+rand2 +','+rand3  +','+1*Math.sin(t)+')';
+  ctx.fillRect(250+ xSize+ t/rand2*rand3  *Math.sin( t*i) ,250+ ySize+ t/rand1*rand3  *Math.cos( t*i) ,1 ,1);
+ 
+ if(draw2nd == 1){
+ ctx.fillStyle='rgba('+rand1 +','+rand2 +','+rand3  +','+1*Math.sin(t)+')';
+  ctx.fillRect(250+ xSize+ t/rand1*rand3  *Math.sin( t*i) ,250+ ySize+ t/rand2*rand3  *Math.cos( t*i) ,1 ,1);
+ }
+   
+ 
+}
+
+window.setTimeout(loop,rand1/t );
+}
+loop();
+</script>
+
+</body>
+
+
+</html>
+ 
